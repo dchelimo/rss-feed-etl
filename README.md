@@ -195,26 +195,30 @@ Each nomination record includes:
 
 ## Development
 
+### Design Philosophy
+
+This project follows a **minimal, focused architecture** principle:
+- Only include code that's actively used by the ETL pipeline
+- Prefer simple, direct implementations over complex abstractions
+- Keep the codebase easy to understand and maintain
+- No over-engineering or premature optimization
+
+The entire ETL pipeline consists of just **6 core files** (~600 lines of code), making it easy to understand, debug, and extend.
+
 ### Project Structure
 
 ```
 rss_feed_etl/
 ├── config/              # Configuration files
-│   ├── feeds.py         # RSS feed sources
-│   ├── orgs.py          # Organization mappings
-│   └── extraction_schemas.py
+│   └── feeds.py         # RSS feed sources and filters
 ├── models/              # Database models
-│   ├── orm_models.py    # SQLAlchemy models
-│   └── universal_models.py
+│   └── orm_models.py    # SQLAlchemy ORM models
 ├── operators/           # ETL operators
-│   ├── scraper.py       # Web scraping
-│   ├── extractor.py     # AI extraction
-│   ├── flatten.py       # Data transformation
-│   └── io.py            # Database I/O
+│   ├── scraper.py       # Selenium web scraping functions
+│   ├── extractor.py     # Claude AI extraction
+│   └── flatten.py       # Data transformation
 ├── dags/                # Airflow DAGs
-│   └── war_etl_dag.py
-├── utils/               # Utilities
-│   └── logging_config.py
+│   └── war_etl_dag.py   # Main ETL orchestration
 ├── requirements.txt     # Python dependencies
 └── launch_etl.sh        # Environment setup script
 ```
