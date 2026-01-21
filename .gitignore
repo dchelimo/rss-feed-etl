@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+.venv/
+*_venv/
+schema_venv/
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (sensitive)
+*.csv
+*.json
+*.sql
+*export*
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Airflow
+airflow.cfg
+webserver_config.py
+
+# Generated files
+schema.png
+
+# Development/debug scripts
+cleanup_today.py
+debug_flat_rows.py
+export_db_query.py
+query_flat_rows.py
+test_db_connection.py
+visualize_schema.py
+setup_etl_project.sh
+rankGroups.py
+titles.py
+CC_BIG_PROMPT.md
+=2.0
+
+# SQL queries directory
+sql_queries/
+
+# Empty tests
+tests/
